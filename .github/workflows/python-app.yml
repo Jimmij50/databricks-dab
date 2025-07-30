@@ -22,6 +22,8 @@ permissions:
 
 jobs:
   deploy:
+    
+  
 
     name: Deploy Databricks Bundle
     runs-on: ubuntu-latest
@@ -31,6 +33,16 @@ jobs:
         working-directory: .
     steps:
     - uses: actions/checkout@v4
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.11
+
+    - name: Install uv package manager
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH  # Add uv to PATH
+
     - uses: databricks/setup-cli@main
     - name: Deploy Databricks Bundle
       run: databricks bundle deploy 
