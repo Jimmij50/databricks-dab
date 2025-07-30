@@ -34,6 +34,7 @@ jobs:
     - name: Deploy Databricks Bundle
       run: databricks bundle deploy 
       env: 
+        DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         DATABRICKS_BUNDLE_ENV: dev
     
