@@ -1,0 +1,14 @@
+# The main pipeline for dab_0729
+resources:
+  pipelines:
+    dab_0729_pipeline:
+      name: dab_0729_pipeline
+      catalog: workspace
+      schema: dab_0729_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
