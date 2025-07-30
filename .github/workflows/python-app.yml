@@ -28,7 +28,7 @@ jobs:
     environment: DATABRICKS_TOKEN
     defaults:
       run:
-        working-directory: ./src
+        working-directory: .
     steps:
     - uses: actions/checkout@v4
     - uses: databricks/setup-cli@main
