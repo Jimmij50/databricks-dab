@@ -5,6 +5,11 @@ resources:
       name: dab_0729_pipeline
       catalog: workspace
       schema: dab_0729_${bundle.target}
+      schedule:
+        quartz_cron_expression: "0 0 8 ? * Mon" # At 8:00:00am, on Monday
+        timezone_id: "America/Sao_Paulo"
+
+      timeout_seconds: 3600  # 1 hour
       serverless: true
       libraries:
         - notebook:
