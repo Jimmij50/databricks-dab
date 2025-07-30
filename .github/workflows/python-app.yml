@@ -32,10 +32,10 @@ jobs:
     - uses: actions/checkout@v4
     - uses: databricks/setup-cli@main
     - name: Deploy Databricks Bundle
-      run: databricks bundle deploy -t staging
+      run: databricks bundle deploy 
       env: 
         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        DATABRICKS_BUNDLE_ENV: staging
+        DATABRICKS_BUNDLE_ENV: dev
     
     # - name: Set up Python 3.10
     #   uses: actions/setup-python@v3
