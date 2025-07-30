@@ -25,6 +25,7 @@ jobs:
 
     name: Deploy Databricks Bundle
     runs-on: ubuntu-latest
+    environment: DATABRICKS_TOKEN
     defaults:
       run:
         working-directory: ./src
