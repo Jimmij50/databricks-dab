@@ -9,6 +9,7 @@ resources:
         periodic:
           interval: 1
           unit: DAYS
+          pause_status: "UNPAUSED"
 
       #email_notifications:
       #  on_failure:
