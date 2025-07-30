@@ -23,13 +23,20 @@ permissions:
 jobs:
   deploy:
 
+    name: Deploy Databricks Bundle
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./src
     steps:
     - uses: actions/checkout@v4
     - uses: databricks/setup-cli@main
-    - run: databricks bundle deploy -t stagging
-      env : DATABRICKS_TOKEN:
+      with:
+        version: latest
+    - name: Deploy Databricks Bundle
+      run: databricks bundle deploy -t staging
+      env: 
+        DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
     
     # - name: Set up Python 3.10
     #   uses: actions/setup-python@v3
